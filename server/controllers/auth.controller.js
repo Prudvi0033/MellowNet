@@ -112,3 +112,14 @@ export const logout = (req, res) => {
         msg: "Logout Succesfull"
     })
 }
+
+export const getCurrentUser = async(req, res) => {
+    try {
+        res.json(req.user)
+    } catch (error) {
+        console.log("Error in fetching cuurent user");
+        res.status(400).json({
+            msg : "Error in fetching cuurent user"
+        })
+    }
+}
