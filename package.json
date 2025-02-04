@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev" : "nodemon server/server.js",
+    "dev": "nodemon server/server.js",
     "start": "node server/server.js"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "mailtrap": "^3.4.0",
     "mongoose": "^8.9.6"
