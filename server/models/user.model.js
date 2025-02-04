@@ -15,6 +15,10 @@ const userSchema = mongoose.Schema({
         required : true,
         unique : true
     },
+    password : {
+        type : String,
+        required : true,
+    },
     profilePicture : {
         type : "String",
         default : "",
@@ -37,7 +41,8 @@ const userSchema = mongoose.Schema({
     },
     skills : [String],
     connections : {
-        type : mongoose.Schema.Types.ObjectId, ref: "User"
+        type : mongoose.Schema.Types.ObjectId, 
+        ref: "User"
     }
 },{timestamps : true})
 

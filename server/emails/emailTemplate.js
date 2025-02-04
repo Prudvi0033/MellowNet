@@ -11,7 +11,7 @@ export const createWelcomeEmailTemplate = (name, profileUrl) => {
   </head>
   <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #4A2C2A; max-width: 600px; margin: 0 auto; padding: 20px; background: #FAF3F0;">
     <div style="background: #6B3E3E; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-      <img src="https://pin.it/2UHD2RhPL" alt="MellowNet Logo" style="width: 150px; margin-bottom: 20px; border-radius: 10px;">
+      <img src="https://i.pinimg.com/736x/d9/97/3d/d9973db01cc28a3801686e6ccdd43093.jpg" alt="MellowNet Logo" style="width: 150px; margin-bottom: 20px; border-radius: 10px;">
       <h1 style="color: white; margin: 0; font-size: 28px;">Welcome to MellowNet!</h1>
     </div>
     <div style="background-color: #ffffff; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
