@@ -7,6 +7,12 @@ export const signup = async (req, res) => {
         const {name, email, password, username} = req.body;
         const existingUser = await User.findOne({email})
 
+        if(!name || !username || !email || !password){
+            res.status(400).json({
+                msg : "All fileds must be filled"
+            })
+        }
+        
         if(existingUser){
             return res.status(200).json({
                 msg : "User already exisits"
@@ -29,17 +35,36 @@ export const signup = async (req, res) => {
             username
         })
 
+        await user.save()
+
         const token = jwt.sign({userId : user._id}, process.env.JWT_SECRET, {expiresIn:"3d"})
-        res.cookie(jwt-mellow, token, {
+        res.cookie("jwt-mellow", token, {
             httpOnly: true,
-            maxAge: 3 * 24 * 60 * 60 * 100,
+            maxAge:  3 * 24 * 60 * 60 * 1000,
             sameSite: "strict",
             secure : process.env.NODE_ENV === "production"
         })
 
+        return res.status(200).json({
+            msg : "Signup Succesfull",
+            user,
+            token
+        })
+
+        const profileUrl = process.env.CLIENT_URL + "/profile" + user.username
+
+        try {
+            await sendWelcomeEmail(user.email, user.name, profileUrl)
+        } catch (error) {
+            console.log("Error sending email", error);
+            
+        }
+
     } catch (error) {
-        console.log("Error in Signup Route");
-        
+        console.log("Error in Signup Route", error);
+        res.status(500).json({
+            msg : "Internal Server err (Signup)"
+        })
     }
 }
 
