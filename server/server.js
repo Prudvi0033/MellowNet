@@ -17,8 +17,7 @@ app.use(cookieParser())
 
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/users",userRoutes)
-app.use("api/v1/posts",postRoutes)
-
+app.use("/api/v1/posts", postRoutes);
 app.listen(port, () => {
     console.log("Server is running");
     connectDB();

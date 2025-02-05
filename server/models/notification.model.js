@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const notificationSchema = mongoose.Schema({
     recipient : {
         type : mongoose.Schema.Types.ObjectId,
-        ref : User,
+        ref : "User",
         required : true
     },
     type : {
@@ -21,3 +21,7 @@ const notificationSchema = mongoose.Schema({
     }
     
 })
+
+const Notification = mongoose.model("Notification",notificationSchema)
+
+export default Notification
