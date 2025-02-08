@@ -1,7 +1,7 @@
 import Connection from "../models/connnection.model.js"
 import User from "../models/user.model.js"
 
-export const sendConnectionRequest = async (req, res) => {
+export const sendConnectionRequest = async (req, res) => { 
     try {
         const { userId } = req.params
         const senderId = req.user._id
@@ -62,7 +62,7 @@ export const acceptConnectionRequest = async (req, res) => {
             })
         }
 
-        request.status === "accepted";
+        request.status = "accepted";
         await request.save()
 
         await User.findByIdAndUpdate(request.sender._id, { $addToSet: { connections: userId } })
